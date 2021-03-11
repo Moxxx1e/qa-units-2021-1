@@ -31,6 +31,30 @@ exports[`Order.js render 1`] = `
 </div>
 `;
 
-exports[`Order.js render with empty order 1`] = `""`;
+exports[`Order.js render with null items 1`] = `
+<div
+  className="Order"
+>
+  <div
+    className="Order-header"
+  >
+    <span
+      className="Order-shop"
+    >
+      shop
+    </span>
+    <span
+      id="date"
+    >
+      11 марта, чт, 2021 год
+    </span>
+  </div>
+  <div
+    className="Order-items"
+  />
+</div>
+`;
 
 exports[`Order.js render with null order 1`] = `""`;
+
+exports[`Order.js render without order 1`] = `""`;

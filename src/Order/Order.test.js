@@ -10,7 +10,14 @@ import Adapter from 'enzyme-adapter-react-16';
 configure({adapter: new Adapter()});
 
 describe('Order.js', () => {
-    getDate.mockReturnValue(`11 марта, чт, 2021 год`);
+    beforeEach(() => {
+        getDate.mockClear();
+        getDate.mockReturnValue(`11 марта, чт, 2021 год`);
+    });
+
+    afterAll(() => {
+        getDate.mockReset();
+    });
 
     it('render', () => {
         const order = {shop: 'shop', date: 2131212, items: ["some data"]}
@@ -21,17 +28,25 @@ describe('Order.js', () => {
         expect(getDate).toHaveBeenCalledTimes(1);
     });
 
-    it('render with empty order', () => {
+    it('render without order', () => {
         const emptyWrapper = shallow(<Order/>);
         expect(emptyWrapper).toMatchSnapshot();
     });
 
     it('render with null order', () => {
-        const order = {shop: null, date: null}
+        const order = {shop: null, date: null, items: null}
         const nullWraper = shallow(<Order
             order={order}
         />);
         expect(nullWraper).toMatchSnapshot();
+    });
+
+    it('render with null items', () => {
+        const order = {shop: 'shop', date: 21312, items: null}
+        const wrapper = shallow(<Order
+            order={order}
+        />);
+        expect(wrapper).toMatchSnapshot();
     });
 })
 
