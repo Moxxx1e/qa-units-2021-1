@@ -30,6 +30,7 @@ export const sortOrders = (orders, sortFunction) => {
  * @returns {sortByItemCount|sortByDate}
  */
 export const getSortFunction = (sortType) => {
+	// eslint-disable-next-line default-case
 	switch(sortType) {
 		case sortTypes.DATE:
 			return sortByDate;
