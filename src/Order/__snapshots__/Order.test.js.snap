@@ -54,7 +54,3 @@ exports[`Order.js render with null items 1`] = `
   />
 </div>
 `;
-
-exports[`Order.js render with null order 1`] = `""`;
-
-exports[`Order.js render without order 1`] = `""`;

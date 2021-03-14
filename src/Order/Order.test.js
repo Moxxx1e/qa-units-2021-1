@@ -24,20 +24,19 @@ describe('Order.js', () => {
             order={order}
         />);
         expect(wrapper).toMatchSnapshot();
-        expect(getDate).toHaveBeenCalledTimes(1);
     });
 
     it('render without order', () => {
         const emptyWrapper = shallow(<Order/>);
-        expect(emptyWrapper).toMatchSnapshot();
+        expect(emptyWrapper.isEmptyRender()).toBeTruthy();
     });
 
     it('render with null order', () => {
         const order = {shop: null, date: null, items: null}
-        const nullWraper = shallow(<Order
+        const nullWrapper = shallow(<Order
             order={order}
         />);
-        expect(nullWraper).toMatchSnapshot();
+        expect(nullWrapper.isEmptyRender()).toBeTruthy();
     });
 
     it('render with null items', () => {
